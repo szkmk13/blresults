@@ -43,7 +43,7 @@ export default function Navbar() {
           />
           {/* Mobile: full logo */}
           <Image
-            src="/images/bl_full.png"
+            src="/images/bl_full-removebg-preview.png"
             alt="BL-Results — Powerlifting & Personal Training"
             width={160}
             height={40}

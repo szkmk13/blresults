@@ -1,10 +1,3 @@
-const stats = [
-  { value: "7", label: "Lat doświadczenia" },
-  { value: "2", label: "Formy treningu" },
-  { value: "7/7", label: "Dni w tygodniu" },
-  { value: "∞", label: "Zaangażowania" },
-];
-
 export default function About() {
   return (
     <section
@@ -89,28 +82,13 @@ export default function About() {
             </a>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 gap-px" style={{ backgroundColor: "var(--border)" }}>
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="p-8 text-center"
-                style={{ backgroundColor: "var(--bg-card)" }}
-              >
-                <div
-                  className="text-4xl font-black mb-2"
-                  style={{ color: "var(--text)" }}
-                >
-                  {stat.value}
-                </div>
-                <div
-                  className="text-[11px] font-medium uppercase tracking-widest"
-                  style={{ color: "var(--text-faint)" }}
-                >
-                  {stat.label}
-                </div>
-              </div>
-            ))}
+          {/* Photo */}
+          <div className="relative overflow-hidden" style={{ backgroundColor: "var(--bg-card)" }}>
+            <img
+              src="/images/zawody2.JPG"
+              alt="Grzegorz Bala — zawody"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>

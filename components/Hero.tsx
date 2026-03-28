@@ -17,7 +17,7 @@ export default function Hero() {
         {/* Full logo */}
         <div className="flex justify-center mb-12">
           <Image
-            src="/images/bl_full.png"
+            src="/images/bl_full-removebg-preview.png"
             alt="BL-Results — Powerlifting & Personal Training"
             width={480}
             height={120}
@@ -69,7 +69,7 @@ export default function Hero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
         style={{ color: "var(--text-faint)" }}
       >
-        <span className="text-[10px] tracking-[0.3em] uppercase">Scroll</span>
+        <span className="text-[10px] tracking-[0.3em] uppercase">Przewiń</span>
         <div
           className="w-px h-10"
           style={{

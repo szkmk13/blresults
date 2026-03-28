@@ -124,7 +124,6 @@ export default function Contact() {
             className="overflow-hidden"
             style={{
               border: "1px solid var(--border)",
-              filter: "grayscale(1)",
             }}
           >
             <iframe

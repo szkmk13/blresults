@@ -103,9 +103,13 @@ export default async function Reviews() {
             className="text-4xl md:text-5xl font-black leading-tight"
             style={{ color: "var(--text)" }}
           >
-            Co mówią
-            <br />
-            podopieczni
+        <p
+          className="mt-6 text-[11px] tracking-wider"
+          style={{ color: "var(--text-faint)" }}
+        >
+          * Opinie pochodzą z Google. Wkrótce pojawią się tu prawdziwe recenzje.
+        </p>
+            Co mówią podopieczni
           </h2>
           <div className="md:ml-auto flex items-center gap-2 mb-1">
             <Stars rating={5} />
@@ -120,6 +124,7 @@ export default async function Reviews() {
             <ReviewCard key={i} review={review} />
           ))}
         </div>
+
       </div>
     </section>
   );
