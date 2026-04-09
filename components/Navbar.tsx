@@ -73,7 +73,7 @@ export default function Navbar() {
         <div className="md:hidden flex items-center gap-3">
           <ThemeToggle />
           <button
-            className="flex flex-col gap-1.5 p-2"
+            className="flex flex-col gap-1.5 p-3"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
           >

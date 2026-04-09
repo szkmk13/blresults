@@ -14,7 +14,7 @@ export default function About() {
           01 - O mnie
         </p>
 
-        <div className="grid md:grid-cols-2 gap-16 items-start">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
           <div>
             <h2
               className="text-4xl md:text-5xl font-black leading-tight mb-2"
@@ -83,11 +83,11 @@ export default function About() {
           </div>
 
           {/* Photo */}
-          <div className="relative overflow-hidden" style={{ backgroundColor: "var(--bg-card)" }}>
+          <div className="relative overflow-hidden aspect-[4/5] md:aspect-auto md:min-h-[520px]" style={{ backgroundColor: "var(--bg-card)" }}>
             <img
               src="/images/konferencja2.JPG"
               alt="Grzegorz Bala - konferencja"
-              className="w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
               style={{ objectPosition: "center 30%" }}
             />
           </div>

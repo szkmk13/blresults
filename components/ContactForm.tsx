@@ -165,7 +165,7 @@ export default function ContactForm() {
   return (
     <section
       id="form"
-      className="py-24 md:py-32"
+      className="pt-12 pb-24 md:pt-16 md:pb-32"
       style={{ backgroundColor: "var(--bg)", borderTop: "1px solid var(--border)" }}
     >
       <style>{`
@@ -310,7 +310,7 @@ export default function ContactForm() {
                     </div>
 
                     {siteKey && (
-                      <div className="mb-6">
+                      <div className="mb-6 overflow-x-auto">
                         <Turnstile
                           ref={turnstileRef}
                           siteKey={siteKey}

@@ -13,7 +13,7 @@ export default function Gallery() {
           04 - Prelegent
         </p>
 
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
           <div>
             <h2
               className="text-4xl md:text-5xl font-black leading-tight mb-6"
@@ -48,7 +48,7 @@ export default function Gallery() {
                 />
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-1">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
               <div className="relative overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--bg-card)" }}>
                 <img
                   src="/images/szkoleniowiec.JPG"
@@ -65,7 +65,7 @@ export default function Gallery() {
                   loading="lazy"
                 />
               </div>
-              <div className="relative overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--bg-card)" }}>
+              <div className="hidden sm:block relative overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--bg-card)" }}>
                 <img
                   src="/images/szkoleniowiec3.JPG"
                   alt="Szkoleniowiec - szkolenie"

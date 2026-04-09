@@ -200,7 +200,7 @@ export default function Pricing() {
           {onlineServices.map((plan) => (
             <div
               key={plan.name}
-              className="flex flex-col flex-1 p-8 md:p-10"
+              className="flex flex-col flex-1 p-6 md:p-10"
               style={{
                 backgroundColor: plan.featured
                   ? "var(--accent)"

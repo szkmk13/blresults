@@ -37,7 +37,7 @@ export default function Contact() {
           05 - Kontakt
         </p>
 
-        <div className="grid md:grid-cols-2 gap-16 items-start">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
           {/* Left: info */}
           <div>
             <h2
@@ -51,7 +51,7 @@ export default function Contact() {
               {contactInfo.map((item) => (
                 <div
                   key={item.label}
-                  className="flex gap-8"
+                  className="flex gap-4 sm:gap-8"
                   style={{ borderTop: "1px solid var(--border)", paddingTop: "1.25rem" }}
                 >
                   <span
@@ -88,7 +88,7 @@ export default function Contact() {
               {/* Instagram */}
               <div
                 style={{ borderTop: "1px solid var(--border)", paddingTop: "1.25rem" }}
-                className="flex gap-8"
+                className="flex gap-4 sm:gap-8"
               >
                 <span
                   className="text-[10px] font-medium tracking-[0.2em] uppercase w-24 shrink-0 pt-0.5"
@@ -100,7 +100,7 @@ export default function Contact() {
                   href="https://www.instagram.com/grzesiek_bl/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm font-medium transition-opacity hover:opacity-60"
+                  className="flex items-center gap-2 text-sm font-medium transition-opacity hover:opacity-60 break-all"
                   style={{ color: "var(--text)" }}
                   aria-label="Instagram @grzesiek_bl"
                 >
@@ -127,8 +127,9 @@ export default function Contact() {
             <iframe
               src={MAPS_EMBED_URL}
               width="100%"
-              height="420"
+              height="320"
               style={{ border: 0, display: "block" }}
+              className="md:!h-[420px]"
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
