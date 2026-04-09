@@ -9,7 +9,7 @@ export default function ThemeToggle() {
 
   useEffect(() => setMounted(true), []);
 
-  // Prevent hydration mismatch — render placeholder until mounted
+  // Prevent hydration mismatch - render placeholder until mounted
   if (!mounted) return <div className="w-8 h-8" />;
 
   const isDark = resolvedTheme === "dark";

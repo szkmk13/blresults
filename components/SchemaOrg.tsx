@@ -3,10 +3,10 @@ export default function SchemaOrg() {
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      name: "BL Results — Grzegorz Bala Trener Personalny",
+      name: "BL Results - Grzegorz Bala Trener Personalny",
       description:
-        "Grzegorz Bala — trener personalny i instruktor trójboju siłowego w Gdańsku. Wspólna praca — Twoje REZULTATY. Treningi indywidualne i w parach.",
-      slogan: "Wspólna praca — Twoje REZULTATY",
+        "Grzegorz Bala - trener personalny i instruktor trójboju siłowego w Gdańsku. Wspólna praca - Twoje REZULTATY. Treningi indywidualne i w parach.",
+      slogan: "Wspólna praca - Twoje REZULTATY",
       url: "https://blresults.pl",
       telephone: "+48509745321",
       email: "grzesiek_bl@wp.pl",

@@ -44,7 +44,7 @@ export default function Navbar() {
           {/* Mobile: full logo */}
           <Image
             src="/images/bl_full-removebg-preview.png"
-            alt="BL-Results — Powerlifting & Personal Training"
+            alt="BL-Results - Powerlifting & Personal Training"
             width={160}
             height={40}
             className="md:hidden h-8 w-auto dark:invert"

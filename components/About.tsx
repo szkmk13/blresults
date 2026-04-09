@@ -11,7 +11,7 @@ export default function About() {
           className="text-[10px] font-medium tracking-[0.4em] uppercase mb-16"
           style={{ color: "var(--text-faint)" }}
         >
-          01 — O mnie
+          01 - O mnie
         </p>
 
         <div className="grid md:grid-cols-2 gap-16 items-start">
@@ -37,7 +37,7 @@ export default function About() {
                 Nazywam się Grzegorz Bala i od blisko 7 lat zawodowo zajmuję się
                 pomocą takim jak Ty na sali treningowej. Moja obecność w sporcie to
                 nie tylko lata spędzone na siłowni, ale przede wszystkim nieustanne
-                weryfikowanie wiedzy w praktyce —&nbsp;jako zawodnik{" "}
+                weryfikowanie wiedzy w praktyce - jako zawodnik{" "}
                 <span style={{ color: "var(--text)", fontWeight: 600 }}>
                   Trójboju Siłowego
                 </span>
@@ -49,12 +49,12 @@ export default function About() {
                 <span style={{ color: "var(--text)", fontWeight: 600 }}>
                   trener personalny oraz instruktor trójboju siłowego
                 </span>{" "}
-                nie tylko pokazuję Ci, jak bezpiecznie dźwigać — przechodzę przez
+                nie tylko pokazuję Ci, jak bezpiecznie dźwigać - przechodzę przez
                 ten proces razem z Tobą.
               </p>
               <p>
                 Stawiam na wzajemne zrozumienie i różnorodność, dzięki czemu na
-                sali nie ma miejsca na nudę — niezależnie od Twojego stażu.
+                sali nie ma miejsca na nudę - niezależnie od Twojego stażu.
                 Prowadzę treningi zarówno dla młodszych, jak i starszych
                 podopiecznych, oferując{" "}
                 <span style={{ color: "var(--text)", fontWeight: 600 }}>
@@ -85,9 +85,10 @@ export default function About() {
           {/* Photo */}
           <div className="relative overflow-hidden" style={{ backgroundColor: "var(--bg-card)" }}>
             <img
-              src="/images/zawody2.JPG"
-              alt="Grzegorz Bala — zawody"
+              src="/images/konferencja2.JPG"
+              alt="Grzegorz Bala - konferencja"
               className="w-full h-full object-cover"
+              style={{ objectPosition: "center 30%" }}
             />
           </div>
         </div>

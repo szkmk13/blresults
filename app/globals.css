@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Tailwind v4 — class-based dark mode */
+/* Tailwind v4 - class-based dark mode */
 @variant dark (&:where(.dark, .dark *));
 
 /* ── Light mode ─────────────────────────────────────── */

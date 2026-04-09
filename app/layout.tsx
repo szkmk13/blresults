@@ -14,11 +14,11 @@ const siteUrl = "https://blresults.pl";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Grzegorz Bala — Trener Personalny Gdańsk | BL Results",
+    default: "Grzegorz Bala - Trener Personalny Gdańsk | BL Results",
     template: "%s | BL Results Gdańsk",
   },
   description:
-    "Grzegorz Bala — trener personalny Gdańsk (BL Results, Trakt Świętego Wojciecha 243). Profesjonalne treningi personalne, indywidualne podejście, realne efekty. Otwarte Pon–Pt 6–22, Sob 8–20, Niedz 9–18.",
+    "Grzegorz Bala - trener personalny Gdańsk (BL Results, Trakt Świętego Wojciecha 243). Profesjonalne treningi personalne, indywidualne podejście, realne efekty. Otwarte Pon–Pt 6–22, Sob 8–20, Niedz 9–18.",
   keywords: [
     "trener personalny Gdańsk",
     "Grzegorz Bala trener",
@@ -35,13 +35,13 @@ export const metadata: Metadata = {
     locale: "pl_PL",
     url: siteUrl,
     siteName: "BL Results",
-    title: "Grzegorz Bala — Trener Personalny Gdańsk | BL Results",
+    title: "Grzegorz Bala - Trener Personalny Gdańsk | BL Results",
     description:
-      "Trener personalny Grzegorz Bala w Gdańsku. Indywidualne treningi, profesjonalne podejście, realne efekty. BL Results — Trakt Świętego Wojciecha 243.",
+      "Trener personalny Grzegorz Bala w Gdańsku. Indywidualne treningi, profesjonalne podejście, realne efekty. BL Results - Trakt Świętego Wojciecha 243.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Grzegorz Bala — Trener Personalny Gdańsk | BL Results",
+    title: "Grzegorz Bala - Trener Personalny Gdańsk | BL Results",
     description:
       "Trener personalny w Gdańsku. Indywidualne treningi, profesjonalne podejście, realne efekty.",
   },

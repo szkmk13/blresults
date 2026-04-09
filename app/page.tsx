@@ -27,7 +27,7 @@ export default function Home() {
             className="text-xs tracking-wider"
             style={{ color: "var(--text-faint)" }}
           >
-            © {new Date().getFullYear()} Grzegorz Bala — BL Results
+            © {new Date().getFullYear()} Grzegorz Bala - BL Results
           </p>
           <div className="flex gap-6">
             {["O mnie", "Oferta", "Kontakt"].map((label, i) => (

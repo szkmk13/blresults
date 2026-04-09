@@ -12,7 +12,7 @@ const trainingPackages = [
     name: "Pakiet 5 treningów",
     price: "750",
     note: "/ pakiet",
-    validity: "ważny 40 dni",
+    validity: "ważny 35 dni",
     description:
       "Jesteś zdecydowany na współpracę i chcesz trenować raz w tygodniu? Wybierz ten pakiet.",
     perSession: "150 zł / trening",
@@ -21,7 +21,7 @@ const trainingPackages = [
     name: "Pakiet 9 treningów",
     price: "1300",
     note: "/ pakiet",
-    validity: "ważny 50 dni",
+    validity: "ważny 35 dni",
     description:
       "Masz w planie trenować dwa razy w tygodniu? Ten pakiet to dla Ciebie najlepsza opcja.",
     perSession: "145 zł / trening",
@@ -30,7 +30,7 @@ const trainingPackages = [
     name: "Pakiet 13 treningów",
     price: "1820",
     note: "/ pakiet",
-    validity: "ważny 60 dni",
+    validity: "ważny 35 dni",
     description:
       "Zakładasz 3 treningi w tygodniu? Wypróbuj ten pakiet i sprawdź jak zadowalające będą efekty po miesiącu.",
     perSession: "140 zł / trening",
@@ -103,7 +103,7 @@ export default function Pricing() {
           className="text-[10px] font-medium tracking-[0.4em] uppercase mb-16"
           style={{ color: "var(--text-faint)" }}
         >
-          02 — Oferta
+          02 - Oferta
         </p>
 
         {/* ── Training sessions ─────────────────────── */}
@@ -111,7 +111,7 @@ export default function Pricing() {
           className="text-xs font-semibold tracking-[0.25em] uppercase mb-8"
           style={{ color: "var(--text-muted)" }}
         >
-          Treningi personalne — Gdańsk
+          Treningi personalne - Gdańsk
         </h3>
 
         <div
@@ -252,7 +252,7 @@ export default function Pricing() {
                       color: plan.featured ? "var(--accent-text)" : "var(--text-muted)",
                     }}
                   >
-                    <span style={{ opacity: 0.5 }}>—</span>
+                    <span style={{ opacity: 0.5 }}>-</span>
                     {f}
                   </li>
                 ))}
@@ -287,7 +287,7 @@ export default function Pricing() {
           >
             Napisz lub zadzwoń
           </a>{" "}
-          — omówię co będzie najlepsze dla Ciebie.
+          - omówię co będzie najlepsze dla Ciebie.
         </p>
       </div>
     </section>

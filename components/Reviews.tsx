@@ -95,7 +95,7 @@ export default async function Reviews() {
           className="text-[10px] font-medium tracking-[0.4em] uppercase mb-16"
           style={{ color: "var(--text-faint)" }}
         >
-          03 — Opinie
+          03 - Opinie
         </p>
 
         <div className="flex flex-col md:flex-row gap-4 md:items-end mb-12">

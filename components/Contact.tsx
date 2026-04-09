@@ -18,7 +18,7 @@ const contactInfo = [
   },
   {
     label: "Godziny otwarcia",
-    lines: ["Pon–Pt: 6:00 – 22:00", "Sob: 8:00 – 20:00", "Niedz: 9:00 – 18:00"],
+    lines: ["Pon–Pt: 7:00 – 22:00", "Sob: 8:00 – 16:00", "Niedz: 10:00 – 14:00"],
   },
 ];
 
@@ -34,7 +34,7 @@ export default function Contact() {
           className="text-[10px] font-medium tracking-[0.4em] uppercase mb-16"
           style={{ color: "var(--text-faint)" }}
         >
-          05 — Kontakt
+          05 - Kontakt
         </p>
 
         <div className="grid md:grid-cols-2 gap-16 items-start">
@@ -134,7 +134,7 @@ export default function Contact() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Lokalizacja BL Results — Grzegorz Bala"
+              title="Lokalizacja BL Results - Grzegorz Bala"
             />
           </div>
         </div>

@@ -18,7 +18,7 @@ export default function Hero() {
         <div className="flex justify-center mb-12">
           <Image
             src="/images/bl_full-removebg-preview.png"
-            alt="BL-Results — Powerlifting & Personal Training"
+            alt="BL-Results - Powerlifting & Personal Training"
             width={480}
             height={120}
             priority
@@ -36,7 +36,7 @@ export default function Hero() {
           className="text-base md:text-lg max-w-xl mx-auto mb-12 leading-relaxed"
           style={{ color: "var(--text-muted)" }}
         >
-          Grzegorz Bala — trener personalny i instruktor trójboju siłowego
+          Grzegorz Bala - trener personalny i instruktor trójboju siłowego
           z&nbsp;7-letnim doświadczeniem. Treningi indywidualne i&nbsp;w&nbsp;parach.
         </p>
 
