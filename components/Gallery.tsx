@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Gallery() {
   return (
     <section
@@ -32,45 +34,50 @@ export default function Gallery() {
           <div className="flex flex-col gap-1">
             <div className="grid grid-cols-2 gap-1">
               <div className="relative overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--bg-card)" }}>
-                <img
+                <Image
                   src="/images/konferencja1.JPG"
                   alt="Konferencja - wystąpienie"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
               <div className="relative overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--bg-card)" }}>
-                <img
+                <Image
                   src="/images/konferencja2.JPG"
                   alt="Konferencja - prelekcja"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
               <div className="relative overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--bg-card)" }}>
-                <img
+                <Image
                   src="/images/szkoleniowiec.JPG"
                   alt="Szkoleniowiec - szkolenie"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 17vw"
                 />
               </div>
               <div className="relative overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--bg-card)" }}>
-                <img
+                <Image
                   src="/images/szkoleniowiec2.JPG"
                   alt="Szkoleniowiec - szkolenie"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 17vw"
                 />
               </div>
               <div className="hidden sm:block relative overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--bg-card)" }}>
-                <img
+                <Image
                   src="/images/szkoleniowiec3.JPG"
                   alt="Szkoleniowiec - szkolenie"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 17vw"
                 />
               </div>
             </div>

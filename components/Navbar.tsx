@@ -40,6 +40,7 @@ export default function Navbar() {
             width={110}
             height={36}
             className="hidden md:block h-9 w-auto dark:invert"
+            style={{ width: "auto" }}
           />
           {/* Mobile: full logo */}
           <Image
@@ -48,6 +49,7 @@ export default function Navbar() {
             width={160}
             height={40}
             className="md:hidden h-8 w-auto dark:invert"
+            style={{ width: "auto" }}
           />
         </a>
 

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function About() {
   return (
     <section
@@ -84,11 +86,13 @@ export default function About() {
 
           {/* Photo */}
           <div className="relative overflow-hidden aspect-[4/5] md:aspect-auto md:min-h-[520px]" style={{ backgroundColor: "var(--bg-card)" }}>
-            <img
+            <Image
               src="/images/konferencja2.JPG"
               alt="Grzegorz Bala - konferencja"
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              className="object-cover"
               style={{ objectPosition: "center 30%" }}
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
         </div>

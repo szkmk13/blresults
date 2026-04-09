@@ -2,11 +2,11 @@ import { getReviews, Review } from "@/lib/google-reviews";
 
 function Stars({ rating }: { rating: number }) {
   return (
-    <div className="flex gap-0.5">
+    <div className="flex gap-1">
       {[1, 2, 3, 4, 5].map((s) => (
         <svg
           key={s}
-          className="w-3.5 h-3.5"
+          className="w-5 h-5"
           viewBox="0 0 20 20"
           fill={s <= rating ? "currentColor" : "none"}
           stroke="currentColor"
@@ -23,37 +23,35 @@ function Stars({ rating }: { rating: number }) {
 function ReviewCard({ review }: { review: Review }) {
   return (
     <div
-      className="flex flex-col gap-4 p-6"
+      className="flex flex-col gap-6 p-8"
       style={{
         backgroundColor: "var(--bg-card)",
         border: "1px solid var(--border)",
       }}
     >
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <p
-            className="font-semibold text-sm"
-            style={{ color: "var(--text)" }}
-          >
-            {review.author_name}
-          </p>
-          <p
-            className="text-xs mt-0.5"
-            style={{ color: "var(--text-faint)" }}
-          >
-            {review.relative_time_description}
-          </p>
-        </div>
-        <Stars rating={review.rating} />
-      </div>
+      <Stars rating={review.rating} />
       {review.text && (
         <p
-          className="text-sm leading-relaxed line-clamp-4"
+          className="text-base leading-relaxed flex-1"
           style={{ color: "var(--text-muted)" }}
         >
           {review.text}
         </p>
       )}
+      <div>
+        <p
+          className="font-semibold text-sm"
+          style={{ color: "var(--text)" }}
+        >
+          {review.author_name}
+        </p>
+        <p
+          className="text-xs mt-0.5"
+          style={{ color: "var(--text-faint)" }}
+        >
+          {review.relative_time_description}
+        </p>
+      </div>
     </div>
   );
 }
@@ -99,18 +97,20 @@ export default async function Reviews() {
         </p>
 
         <div className="flex flex-col md:flex-row gap-4 md:items-end mb-12">
-          <h2
-            className="text-4xl md:text-5xl font-black leading-tight"
-            style={{ color: "var(--text)" }}
-          >
-        <p
-          className="mt-6 text-[11px] tracking-wider"
-          style={{ color: "var(--text-faint)" }}
-        >
-          * Opinie pochodzą z Google. Wkrótce pojawią się tu prawdziwe recenzje.
-        </p>
-            Co mówią podopieczni
-          </h2>
+          <div>
+            <h2
+              className="text-4xl md:text-5xl font-black leading-tight"
+              style={{ color: "var(--text)" }}
+            >
+              Co mówią podopieczni
+            </h2>
+            <p
+              className="mt-3 text-[11px] tracking-wider"
+              style={{ color: "var(--text-faint)" }}
+            >
+              * Opinie pochodzą z Google. Wkrótce pojawią się tu prawdziwe recenzje.
+            </p>
+          </div>
           <div className="md:ml-auto flex items-center gap-2 mb-1">
             <Stars rating={5} />
             <span className="text-sm" style={{ color: "var(--text-muted)" }}>
@@ -119,7 +119,7 @@ export default async function Reviews() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {displayReviews.map((review, i) => (
             <ReviewCard key={i} review={review} />
           ))}
