@@ -5,6 +5,7 @@ import Pricing from "@/components/Pricing";
 import Reviews from "@/components/Reviews";
 import Gallery from "@/components/Gallery";
 import Contact from "@/components/Contact";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <Reviews />
         <Gallery />
         <Contact />
+        <ContactForm />
       </main>
       <footer
         className="py-8"

@@ -44,9 +44,7 @@ export default function Contact() {
               className="text-4xl md:text-5xl font-black mb-12 leading-tight"
               style={{ color: "var(--text)" }}
             >
-              Napisz
-              <br />
-              do mnie
+              Napisz do mnie
             </h2>
 
             <div className="flex flex-col gap-8">
