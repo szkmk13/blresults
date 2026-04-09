@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { Turnstile } from "@marsidev/react-turnstile";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 
 const STEPS = [
   {
@@ -80,7 +80,7 @@ export default function ContactForm() {
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
-  const turnstileRef = useRef<{ reset: () => void }>(null);
+  const turnstileRef = useRef<TurnstileInstance>(null);
 
   const totalSteps = STEPS.length + 1;
   const isQuestionStep = step < STEPS.length;
