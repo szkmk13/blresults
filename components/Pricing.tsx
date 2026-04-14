@@ -1,3 +1,7 @@
+"use client";
+
+import { useInView } from "@/hooks/useInView";
+
 const trainingPackages = [
   {
     name: "Pojedynczy trening",
@@ -89,9 +93,14 @@ const onlineServices = [
 ];
 
 export default function Pricing() {
+  const [sectionRef, sectionInView] = useInView<HTMLElement>();
+  const [packagesRef, packagesInView] = useInView<HTMLDivElement>();
+  const [onlineRef, onlineInView] = useInView<HTMLDivElement>();
+
   return (
     <section
       id="pricing"
+      ref={sectionRef}
       className="py-24 md:py-32"
       style={{
         backgroundColor: "var(--bg-secondary)",
@@ -100,7 +109,7 @@ export default function Pricing() {
     >
       <div className="max-w-6xl mx-auto px-6">
         <p
-          className="text-[10px] font-medium tracking-[0.4em] uppercase mb-16"
+          className={`text-[10px] font-medium tracking-[0.4em] uppercase mb-16 anim-fade-in${sectionInView ? " is-visible" : ""}`}
           style={{ color: "var(--text-faint)" }}
         >
           02 - Oferta
@@ -108,23 +117,28 @@ export default function Pricing() {
 
         {/* ── Training sessions ─────────────────────── */}
         <h3
-          className="text-xs font-semibold tracking-[0.25em] uppercase mb-8"
-          style={{ color: "var(--text-muted)" }}
+          className={`text-xs font-semibold tracking-[0.25em] uppercase mb-8 anim-fade-up${sectionInView ? " is-visible" : ""}`}
+          style={{
+            color: "var(--text-muted)",
+            ...(sectionInView ? { animationDelay: "100ms" } : {}),
+          }}
         >
           Treningi personalne - Gdańsk
         </h3>
 
         <div
+          ref={packagesRef}
           className="mb-20"
           style={{ border: "1px solid var(--border)" }}
         >
           {trainingPackages.map((pkg, i) => (
             <div
               key={pkg.name}
-              className="grid md:grid-cols-[1fr_auto] gap-4 items-center p-6 md:p-8"
+              className={`grid md:grid-cols-[1fr_auto] gap-4 items-center p-6 md:p-8 anim-fade-up${packagesInView ? " is-visible" : ""}`}
               style={{
                 borderTop: i > 0 ? "1px solid var(--border)" : "none",
                 backgroundColor: pkg.best ? "var(--bg-card)" : "transparent",
+                ...(packagesInView ? { animationDelay: `${i * 80}ms` } : {}),
               }}
             >
               <div>
@@ -187,24 +201,26 @@ export default function Pricing() {
 
         {/* ── Online / plans ────────────────────────── */}
         <h3
-          className="text-xs font-semibold tracking-[0.25em] uppercase mb-8"
+          className={`text-xs font-semibold tracking-[0.25em] uppercase mb-8 anim-fade-up${onlineInView ? " is-visible" : ""}`}
           style={{ color: "var(--text-muted)" }}
         >
           Plany i współpraca online
         </h3>
 
         <div
+          ref={onlineRef}
           className="flex flex-col md:flex-row gap-px mb-8"
           style={{ backgroundColor: "var(--border)" }}
         >
-          {onlineServices.map((plan) => (
+          {onlineServices.map((plan, i) => (
             <div
               key={plan.name}
-              className="flex flex-col flex-1 p-6 md:p-10"
+              className={`flex flex-col flex-1 p-6 md:p-10 anim-fade-up${onlineInView ? " is-visible" : ""}`}
               style={{
                 backgroundColor: plan.featured
                   ? "var(--accent)"
                   : "var(--bg-card)",
+                ...(onlineInView ? { animationDelay: `${i * 100}ms` } : {}),
               }}
             >
               {plan.featured && (

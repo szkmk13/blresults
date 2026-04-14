@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
+import { useInView } from "@/hooks/useInView";
 
 const STEPS = [
   {
@@ -145,6 +146,7 @@ export default function ContactForm() {
     }
   }
 
+  const [sectionRef, sectionInView] = useInView<HTMLElement>();
   const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
 
   const animStyle: React.CSSProperties = (() => {
@@ -165,6 +167,7 @@ export default function ContactForm() {
   return (
     <section
       id="form"
+      ref={sectionRef}
       className="pt-12 pb-24 md:pt-16 md:pb-32"
       style={{ backgroundColor: "var(--bg)", borderTop: "1px solid var(--border)" }}
     >
@@ -177,12 +180,16 @@ export default function ContactForm() {
 
       <div className="max-w-6xl mx-auto px-6">
         <p
-          className="text-[10px] font-medium tracking-[0.4em] uppercase mb-16"
+          className={`text-[10px] font-medium tracking-[0.4em] uppercase mb-16 anim-fade-in${sectionInView ? " is-visible" : ""}`}
           style={{ color: "var(--text-faint)" }}
         >
           05 - Formularz kontaktowy
         </p>
 
+        <div
+          className={`anim-fade-up${sectionInView ? " is-visible" : ""}`}
+          style={sectionInView ? { animationDelay: "150ms" } : undefined}
+        >
         {status === "success" ? (
           <div className="text-center py-16" style={{ animation: `slideInRight ${ANIM_DURATION}ms cubic-bezier(0.22,1,0.36,1) both` }}>
             <p className="text-3xl font-black mb-4" style={{ color: "var(--text)" }}>
@@ -350,6 +357,7 @@ export default function ContactForm() {
             )}
           </>
         )}
+        </div>
       </div>
     </section>
   );

@@ -1,3 +1,7 @@
+"use client";
+
+import { useInView } from "@/hooks/useInView";
+
 const MAPS_EMBED_URL =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d622.4404535872487!2d18.629732219902877!3d54.31267748519942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fd739b50918f79%3A0x4a3e0f02af39a94a!2sTrener%20Grzegorz%20Bala!5e0!3m2!1spl!2spl!4v1773931437052!5m2!1spl!2spl";
 
@@ -23,15 +27,20 @@ const contactInfo = [
 ];
 
 export default function Contact() {
+  const [sectionRef, sectionInView] = useInView<HTMLElement>();
+  const [leftRef, leftInView] = useInView<HTMLDivElement>();
+  const [rightRef, rightInView] = useInView<HTMLDivElement>();
+
   return (
     <section
       id="contact"
+      ref={sectionRef}
       className="py-24 md:py-32"
       style={{ borderTop: "1px solid var(--border)" }}
     >
       <div className="max-w-6xl mx-auto px-6">
         <p
-          className="text-[10px] font-medium tracking-[0.4em] uppercase mb-16"
+          className={`text-[10px] font-medium tracking-[0.4em] uppercase mb-16 anim-fade-in${sectionInView ? " is-visible" : ""}`}
           style={{ color: "var(--text-faint)" }}
         >
           06 - Kontakt
@@ -39,7 +48,10 @@ export default function Contact() {
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
           {/* Left: info */}
-          <div>
+          <div
+            ref={leftRef}
+            className={`anim-fade-left${leftInView ? " is-visible" : ""}`}
+          >
             <h2
               className="text-4xl md:text-5xl font-black mb-12 leading-tight"
               style={{ color: "var(--text)" }}
@@ -119,9 +131,11 @@ export default function Contact() {
 
           {/* Right: map */}
           <div
-            className="overflow-hidden"
+            ref={rightRef}
+            className={`overflow-hidden anim-fade-right${rightInView ? " is-visible" : ""}`}
             style={{
               border: "1px solid var(--border)",
+              ...(rightInView ? { animationDelay: "100ms" } : {}),
             }}
           >
             <iframe

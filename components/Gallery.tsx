@@ -1,22 +1,41 @@
+"use client";
+
 import Image from "next/image";
+import { useInView } from "@/hooks/useInView";
+
+const images = [
+  { src: "/images/konferencja1.JPG", alt: "Konferencja - wystąpienie", sizes: "(max-width: 768px) 50vw, 25vw" },
+  { src: "/images/konferencja2.JPG", alt: "Konferencja - prelekcja", sizes: "(max-width: 768px) 50vw, 25vw" },
+  { src: "/images/szkoleniowiec.JPG", alt: "Szkoleniowiec - szkolenie", sizes: "(max-width: 640px) 50vw, (max-width: 768px) 33vw, 17vw" },
+  { src: "/images/szkoleniowiec2.JPG", alt: "Szkoleniowiec - szkolenie", sizes: "(max-width: 640px) 50vw, (max-width: 768px) 33vw, 17vw" },
+  { src: "/images/szkoleniowiec3.JPG", alt: "Szkoleniowiec - szkolenie", sizes: "(max-width: 640px) 50vw, (max-width: 768px) 33vw, 17vw" },
+];
 
 export default function Gallery() {
+  const [sectionRef, sectionInView] = useInView<HTMLElement>();
+  const [textRef, textInView] = useInView<HTMLDivElement>();
+  const [gridRef, gridInView] = useInView<HTMLDivElement>();
+
   return (
     <section
       id="gallery"
+      ref={sectionRef}
       className="py-24 md:py-32"
       style={{ backgroundColor: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}
     >
       <div className="max-w-6xl mx-auto px-6">
         <p
-          className="text-[10px] font-medium tracking-[0.4em] uppercase mb-16"
+          className={`text-[10px] font-medium tracking-[0.4em] uppercase mb-16 anim-fade-in${sectionInView ? " is-visible" : ""}`}
           style={{ color: "var(--text-faint)" }}
         >
           04 - Prelegent
         </p>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-          <div>
+          <div
+            ref={textRef}
+            className={`anim-fade-left${textInView ? " is-visible" : ""}`}
+          >
             <h2
               className="text-4xl md:text-5xl font-black leading-tight mb-6"
               style={{ color: "var(--text)" }}
@@ -31,55 +50,46 @@ export default function Gallery() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-1">
+          <div ref={gridRef} className="flex flex-col gap-1">
             <div className="grid grid-cols-2 gap-1">
-              <div className="relative overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--bg-card)" }}>
-                <Image
-                  src="/images/konferencja1.JPG"
-                  alt="Konferencja - wystąpienie"
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                />
-              </div>
-              <div className="relative overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--bg-card)" }}>
-                <Image
-                  src="/images/konferencja2.JPG"
-                  alt="Konferencja - prelekcja"
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                />
-              </div>
+              {images.slice(0, 2).map((img, i) => (
+                <div
+                  key={img.src}
+                  className={`relative overflow-hidden aspect-[3/4] anim-fade-in${gridInView ? " is-visible" : ""}`}
+                  style={{
+                    backgroundColor: "var(--bg-card)",
+                    ...(gridInView ? { animationDelay: `${i * 100}ms` } : {}),
+                  }}
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-700"
+                    sizes={img.sizes}
+                  />
+                </div>
+              ))}
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
-              <div className="relative overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--bg-card)" }}>
-                <Image
-                  src="/images/szkoleniowiec.JPG"
-                  alt="Szkoleniowiec - szkolenie"
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 17vw"
-                />
-              </div>
-              <div className="relative overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--bg-card)" }}>
-                <Image
-                  src="/images/szkoleniowiec2.JPG"
-                  alt="Szkoleniowiec - szkolenie"
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 17vw"
-                />
-              </div>
-              <div className="hidden sm:block relative overflow-hidden aspect-[3/4]" style={{ backgroundColor: "var(--bg-card)" }}>
-                <Image
-                  src="/images/szkoleniowiec3.JPG"
-                  alt="Szkoleniowiec - szkolenie"
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 17vw"
-                />
-              </div>
+              {images.slice(2).map((img, i) => (
+                <div
+                  key={img.src}
+                  className={`${i === 2 ? "hidden sm:block " : ""}relative overflow-hidden aspect-[3/4] anim-fade-in${gridInView ? " is-visible" : ""}`}
+                  style={{
+                    backgroundColor: "var(--bg-card)",
+                    ...(gridInView ? { animationDelay: `${(i + 2) * 100}ms` } : {}),
+                  }}
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-700"
+                    sizes={img.sizes}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>

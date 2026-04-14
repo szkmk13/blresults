@@ -1,23 +1,33 @@
+"use client";
+
 import Image from "next/image";
+import { useInView } from "@/hooks/useInView";
 
 export default function About() {
+  const [sectionRef, sectionInView] = useInView<HTMLElement>();
+  const [textRef, textInView] = useInView<HTMLDivElement>();
+  const [photoRef, photoInView] = useInView<HTMLDivElement>();
+
   return (
     <section
       id="about"
+      ref={sectionRef}
       className="py-24 md:py-32"
       style={{ borderTop: "1px solid var(--border)" }}
     >
       <div className="max-w-6xl mx-auto px-6">
-        {/* Section label */}
         <p
-          className="text-[10px] font-medium tracking-[0.4em] uppercase mb-16"
+          className={`text-[10px] font-medium tracking-[0.4em] uppercase mb-16 anim-fade-in${sectionInView ? " is-visible" : ""}`}
           style={{ color: "var(--text-faint)" }}
         >
           01 - O mnie
         </p>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
-          <div>
+          <div
+            ref={textRef}
+            className={`anim-fade-left${textInView ? " is-visible" : ""}`}
+          >
             <h2
               className="text-4xl md:text-5xl font-black leading-tight mb-2"
               style={{ color: "var(--text)" }}
@@ -85,7 +95,11 @@ export default function About() {
           </div>
 
           {/* Photo */}
-          <div className="relative overflow-hidden aspect-[4/5] md:aspect-auto md:min-h-[520px]" style={{ backgroundColor: "var(--bg-card)" }}>
+          <div
+            ref={photoRef}
+            className={`relative overflow-hidden aspect-[4/5] md:aspect-auto md:min-h-[520px] anim-fade-right${photoInView ? " is-visible" : ""}`}
+            style={{ backgroundColor: "var(--bg-card)" }}
+          >
             <Image
               src="/images/grzegorz.png"
               alt="Grzegorz Bala"
