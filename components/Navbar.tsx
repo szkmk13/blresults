@@ -9,7 +9,7 @@ const navLinks = [
   { href: "#pricing", label: "Oferta" },
   { href: "#reviews", label: "Opinie" },
   { href: "#gallery", label: "Galeria" },
-  { href: "#contact", label: "Kontakt" },
+  { href: "#form", label: "Kontakt" },
 ];
 
 export default function Navbar() {

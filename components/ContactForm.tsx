@@ -175,12 +175,12 @@ export default function ContactForm() {
         @keyframes slideOutRight { from { opacity:1; transform:translateX(0) } to { opacity:0; transform:translateX(48px) } }
       `}</style>
 
-      <div className="max-w-2xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         <p
           className="text-[10px] font-medium tracking-[0.4em] uppercase mb-16"
           style={{ color: "var(--text-faint)" }}
         >
-          06 - Formularz kontaktowy
+          05 - Formularz kontaktowy
         </p>
 
         {status === "success" ? (

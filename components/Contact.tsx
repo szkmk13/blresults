@@ -34,7 +34,7 @@ export default function Contact() {
           className="text-[10px] font-medium tracking-[0.4em] uppercase mb-16"
           style={{ color: "var(--text-faint)" }}
         >
-          05 - Kontakt
+          06 - Kontakt
         </p>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
@@ -44,7 +44,7 @@ export default function Contact() {
               className="text-4xl md:text-5xl font-black mb-12 leading-tight"
               style={{ color: "var(--text)" }}
             >
-              Napisz do mnie
+              Znajdź mnie
             </h2>
 
             <div className="flex flex-col gap-8">

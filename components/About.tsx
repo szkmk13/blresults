@@ -73,7 +73,7 @@ export default function About() {
             </div>
 
             <a
-              href="#contact"
+              href="#form"
               className="inline-block mt-10 font-semibold py-3 px-8 text-xs tracking-[0.2em] uppercase transition-opacity hover:opacity-70"
               style={{
                 backgroundColor: "var(--accent)",
@@ -87,8 +87,8 @@ export default function About() {
           {/* Photo */}
           <div className="relative overflow-hidden aspect-[4/5] md:aspect-auto md:min-h-[520px]" style={{ backgroundColor: "var(--bg-card)" }}>
             <Image
-              src="/images/konferencja2.JPG"
-              alt="Grzegorz Bala - konferencja"
+              src="/images/grzegorz.png"
+              alt="Grzegorz Bala"
               fill
               className="object-cover"
               style={{ objectPosition: "center 30%" }}

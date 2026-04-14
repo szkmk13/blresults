@@ -258,7 +258,7 @@ export default function Pricing() {
                 ))}
               </ul>
               <a
-                href="#contact"
+                href="#form"
                 className="block text-center font-semibold py-3 px-6 text-xs tracking-[0.2em] uppercase transition-opacity hover:opacity-70"
                 style={
                   plan.featured
@@ -281,7 +281,7 @@ export default function Pricing() {
         <p className="text-sm" style={{ color: "var(--text-faint)" }}>
           Masz pytania?{" "}
           <a
-            href="#contact"
+            href="#form"
             className="underline underline-offset-4 transition-opacity hover:opacity-60"
             style={{ color: "var(--text-muted)" }}
           >

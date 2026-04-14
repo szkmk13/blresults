@@ -17,8 +17,8 @@ export default function Home() {
         <Pricing />
         <Reviews />
         <Gallery />
-        <Contact />
         <ContactForm />
+        <Contact />
       </main>
       <footer
         className="py-8"
@@ -35,7 +35,7 @@ export default function Home() {
             {["O mnie", "Oferta", "Kontakt"].map((label, i) => (
               <a
                 key={i}
-                href={`#${["about", "pricing", "contact"][i]}`}
+                href={`#${["about", "pricing", "form"][i]}`}
                 className="text-xs tracking-wider transition-opacity hover:opacity-60"
                 style={{ color: "var(--text-faint)" }}
               >
