@@ -1,15 +1,64 @@
+import { Review } from "@/lib/google-reviews";
+import { HOURS } from "@/lib/hours";
+
 const siteUrl = "https://bl-results.pl";
+
+const trainingOffers = [
+  {
+    name: "Pojedynczy trening personalny",
+    price: "160",
+    description: "Jednorazowe wsparcie lub próbna sesja przed zakupem pakietu.",
+  },
+  {
+    name: "Pakiet 5 treningów personalnych",
+    price: "750",
+    description: "Idealny przy jednym treningu tygodniowo. Ważny 35 dni.",
+  },
+  {
+    name: "Pakiet 9 treningów personalnych",
+    price: "1300",
+    description: "Dla osób trenujących dwa razy w tygodniu. Ważny 35 dni.",
+  },
+  {
+    name: "Pakiet 13 treningów personalnych",
+    price: "1820",
+    description: "Trzy treningi tygodniowo przez miesiąc. Ważny 35 dni.",
+  },
+  {
+    name: "Pakiet 25 treningów personalnych",
+    price: "3400",
+    description: "Najlepsza stawka – treningi na dwa miesiące. Ważny 70 dni.",
+  },
+  {
+    name: "Plan treningowy online",
+    price: "250",
+    description: "Spersonalizowany schemat treningowy, jednorazowo.",
+  },
+  {
+    name: "Konsultacja i indywidualny plan treningowy",
+    price: "450",
+    description: "Spotkanie na żywo lub online, analiza techniki i plan treningowy.",
+  },
+  {
+    name: "Miesięczna współpraca online",
+    price: "300",
+    description:
+      "Miesięczna współpraca z planem treningowym, stałym kontaktem i korektą techniki wideo.",
+  },
+];
 
 export default function SchemaOrg({
   rating,
   reviewCount,
+  reviews,
 }: {
   rating?: number | null;
   reviewCount?: number | null;
+  reviews?: Review[];
 }) {
   const localBusiness: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "ProfessionalService"],
     name: "BL Results - Grzegorz Bala Trener Personalny",
     description:
       "Grzegorz Bala - trener personalny i instruktor trójboju siłowego Gdańsk Orunia. Wspólna praca - Twoje REZULTATY. Treningi indywidualne i w parach.",
@@ -34,24 +83,42 @@ export default function SchemaOrg({
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "06:00",
-        closes: "22:00",
+        opens: HOURS.weekdays.opens,
+        closes: HOURS.weekdays.closes,
       },
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: "Saturday",
-        opens: "08:00",
-        closes: "20:00",
+        opens: HOURS.saturday.opens,
+        closes: HOURS.saturday.closes,
       },
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: "Sunday",
-        opens: "09:00",
-        closes: "18:00",
+        opens: HOURS.sunday.opens,
+        closes: HOURS.sunday.closes,
       },
     ],
     sameAs: ["https://www.instagram.com/grzesiek_bl/"],
     priceRange: "$$",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Usługi treningowe BL Results",
+      itemListElement: trainingOffers.map((offer) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: offer.name,
+          description: offer.description,
+        },
+        price: offer.price,
+        priceCurrency: "PLN",
+        areaServed: {
+          "@type": "City",
+          name: "Gdańsk",
+        },
+      })),
+    },
   };
 
   if (rating !== null && rating !== undefined && reviewCount) {
@@ -62,6 +129,25 @@ export default function SchemaOrg({
       bestRating: "5",
       worstRating: "1",
     };
+  }
+
+  if (reviews && reviews.length > 0) {
+    localBusiness.review = reviews
+      .filter((r) => r.text)
+      .map((r) => ({
+        "@type": "Review",
+        author: {
+          "@type": "Person",
+          name: r.author_name,
+        },
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: r.rating,
+          bestRating: 5,
+          worstRating: 1,
+        },
+        reviewBody: r.text,
+      }));
   }
 
   const schema = [

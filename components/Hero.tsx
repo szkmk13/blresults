@@ -28,7 +28,7 @@ export default function Hero() {
         <div className={`flex justify-center mb-12 anim-fade-in${mounted ? " is-visible" : ""}`}>
           <Image
             src="/images/bl_full-removebg-preview.png"
-            alt="BL-Results - Powerlifting & Personal Training"
+            alt="BL Results - Trening personalny i trójbój siłowy"
             width={480}
             height={120}
             priority
@@ -47,16 +47,26 @@ export default function Hero() {
         />
 
         <h1
-          className={`text-base md:text-lg max-w-xl mx-auto mb-12 leading-relaxed anim-fade-up${mounted ? " is-visible" : ""}`}
+          className={`text-base md:text-lg max-w-xl mx-auto mb-3 leading-relaxed anim-fade-up${mounted ? " is-visible" : ""}`}
           style={{
             color: "var(--text-muted)",
             fontWeight: "inherit",
             ...(mounted ? { animationDelay: "200ms" } : {}),
           }}
         >
-          Grzegorz Bala - trener personalny i instruktor trójboju siłowego
-          z&nbsp;7-letnim doświadczeniem. Treningi indywidualne i&nbsp;w&nbsp;parach.
+          Grzegorz Bala - trener personalny Gdańsk
         </h1>
+
+        <p
+          className={`text-base md:text-lg max-w-xl mx-auto mb-12 leading-relaxed anim-fade-up${mounted ? " is-visible" : ""}`}
+          style={{
+            color: "var(--text-muted)",
+            ...(mounted ? { animationDelay: "300ms" } : {}),
+          }}
+        >
+          Instruktor trójboju siłowego z&nbsp;7-letnim doświadczeniem.
+          Treningi indywidualne i&nbsp;w&nbsp;parach.
+        </p>
 
         <div
           className={`flex flex-col sm:flex-row gap-3 justify-center anim-fade-up${mounted ? " is-visible" : ""}`}

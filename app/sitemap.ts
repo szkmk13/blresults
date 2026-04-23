@@ -4,9 +4,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: "https://bl-results.pl",
-      lastModified: new Date("2026-04-23"),
+      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
+    },
+    {
+      url: "https://bl-results.pl/polityka-prywatnosci",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.3,
     },
   ];
 }

@@ -341,6 +341,17 @@ export default function ContactForm() {
                     >
                       {status === "sending" ? "Wysyłanie..." : "Wyślij zgłoszenie"}
                     </button>
+                    <p className="text-[11px] mt-3" style={{ color: "var(--text-faint)" }}>
+                      Wysyłając formularz, akceptujesz{" "}
+                      <a
+                        href="/polityka-prywatnosci"
+                        className="underline underline-offset-2 transition-opacity hover:opacity-70"
+                        style={{ color: "var(--text-faint)" }}
+                      >
+                        politykę prywatności
+                      </a>
+                      .
+                    </p>
                   </form>
                 )}
               </div>

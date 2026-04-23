@@ -20,10 +20,11 @@ export async function getPlaceDetails(): Promise<PlaceDetails> {
 
   try {
     const res = await fetch(
-      `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews,rating,user_ratings_total&key=${apiKey}&language=pl`,
+      `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&key=${apiKey}&language=pl`,
       { next: { revalidate: 86400 } }
     );
     const data = await res.json();
+    console.log("Google Places API response:", data);
     return {
       reviews: data.result?.reviews ?? [],
       rating: data.result?.rating ?? null,

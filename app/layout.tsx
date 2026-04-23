@@ -74,7 +74,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { rating, reviewCount } = await getPlaceDetails();
+  const { rating, reviewCount, reviews } = await getPlaceDetails();
 
   return (
     <html
@@ -91,7 +91,7 @@ export default async function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
-        <SchemaOrg rating={rating} reviewCount={reviewCount} />
+        <SchemaOrg rating={rating} reviewCount={reviewCount} reviews={reviews} />
         <ThemeProvider>{children}</ThemeProvider>
         <Analytics />
       </body>

@@ -33,17 +33,30 @@ export default function Home() {
           >
             © {new Date().getFullYear()} Grzegorz Bala - BL Results
           </p>
-          <div className="flex gap-6">
-            {["O mnie", "Oferta", "Kontakt"].map((label, i) => (
+          <div className="flex flex-wrap gap-6">
+            {[
+              ["O mnie", "#about"],
+              ["Oferta", "#pricing"],
+              ["Opinie", "#reviews"],
+              ["Galeria", "#gallery"],
+              ["Kontakt", "#form"],
+            ].map(([label, href]) => (
               <a
-                key={i}
-                href={`#${["about", "pricing", "form"][i]}`}
+                key={href}
+                href={href}
                 className="text-xs tracking-wider transition-opacity hover:opacity-60"
                 style={{ color: "var(--text-faint)" }}
               >
                 {label}
               </a>
             ))}
+            <a
+              href="/polityka-prywatnosci"
+              className="text-xs tracking-wider transition-opacity hover:opacity-60"
+              style={{ color: "var(--text-faint)" }}
+            >
+              Polityka prywatności
+            </a>
           </div>
         </div>
       </footer>
