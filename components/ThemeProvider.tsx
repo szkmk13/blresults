@@ -13,7 +13,7 @@ export default function ThemeProvider({
       defaultTheme="dark"
       enableSystem={false}
       disableTransitionOnChange={false}
-      storageKey="blresults-theme"
+      storageKey="bl-results-theme"
     >
       {children}
     </NextThemesProvider>

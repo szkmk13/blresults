@@ -4,11 +4,11 @@ import Image from "next/image";
 import { useInView } from "@/hooks/useInView";
 
 const images = [
-  { src: "/images/konferencja1.JPG", alt: "Konferencja - wystąpienie", sizes: "(max-width: 768px) 50vw, 25vw" },
-  { src: "/images/konferencja2.JPG", alt: "Konferencja - prelekcja", sizes: "(max-width: 768px) 50vw, 25vw" },
-  { src: "/images/szkoleniowiec.JPG", alt: "Szkoleniowiec - szkolenie", sizes: "(max-width: 640px) 50vw, (max-width: 768px) 33vw, 17vw" },
-  { src: "/images/szkoleniowiec2.JPG", alt: "Szkoleniowiec - szkolenie", sizes: "(max-width: 640px) 50vw, (max-width: 768px) 33vw, 17vw" },
-  { src: "/images/szkoleniowiec3.JPG", alt: "Szkoleniowiec - szkolenie", sizes: "(max-width: 640px) 50vw, (max-width: 768px) 33vw, 17vw" },
+  { src: "/images/konferencja1.JPG", alt: "Grzegorz Bala jako prelegent na konferencji branżowej", sizes: "(max-width: 768px) 50vw, 25vw" },
+  { src: "/images/konferencja2.JPG", alt: "Grzegorz Bala - wystąpienie na konferencji trenerskiej", sizes: "(max-width: 768px) 50vw, 25vw" },
+  { src: "/images/szkoleniowiec.JPG", alt: "Grzegorz Bala prowadzący szkolenie dla trenerów personalnych", sizes: "(max-width: 640px) 50vw, (max-width: 768px) 33vw, 17vw" },
+  { src: "/images/szkoleniowiec2.JPG", alt: "Grzegorz Bala - szkolenie z trójboju siłowego Gdańsk", sizes: "(max-width: 640px) 50vw, (max-width: 768px) 33vw, 17vw" },
+  { src: "/images/szkoleniowiec3.JPG", alt: "Grzegorz Bala jako szkoleniowiec - warsztat treningowy", sizes: "(max-width: 640px) 50vw, (max-width: 768px) 33vw, 17vw" },
 ];
 
 export default function Gallery() {

@@ -33,6 +33,7 @@ export default function Hero() {
             height={120}
             priority
             className="w-72 md:w-96 lg:w-[480px] h-auto dark:invert"
+            style={{ height: "auto" }}
           />
         </div>
 
@@ -45,16 +46,17 @@ export default function Hero() {
           }}
         />
 
-        <p
+        <h1
           className={`text-base md:text-lg max-w-xl mx-auto mb-12 leading-relaxed anim-fade-up${mounted ? " is-visible" : ""}`}
           style={{
             color: "var(--text-muted)",
+            fontWeight: "inherit",
             ...(mounted ? { animationDelay: "200ms" } : {}),
           }}
         >
           Grzegorz Bala - trener personalny i instruktor trójboju siłowego
           z&nbsp;7-letnim doświadczeniem. Treningi indywidualne i&nbsp;w&nbsp;parach.
-        </p>
+        </h1>
 
         <div
           className={`flex flex-col sm:flex-row gap-3 justify-center anim-fade-up${mounted ? " is-visible" : ""}`}

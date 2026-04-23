@@ -116,7 +116,7 @@ export default function Pricing() {
         </p>
 
         {/* ── Training sessions ─────────────────────── */}
-        <h3
+        <h2
           className={`text-xs font-semibold tracking-[0.25em] uppercase mb-8 anim-fade-up${sectionInView ? " is-visible" : ""}`}
           style={{
             color: "var(--text-muted)",
@@ -124,7 +124,7 @@ export default function Pricing() {
           }}
         >
           Treningi personalne - Gdańsk
-        </h3>
+        </h2>
 
         <div
           ref={packagesRef}
@@ -200,12 +200,12 @@ export default function Pricing() {
         </div>
 
         {/* ── Online / plans ────────────────────────── */}
-        <h3
+        <h2
           className={`text-xs font-semibold tracking-[0.25em] uppercase mb-8 anim-fade-up${onlineInView ? " is-visible" : ""}`}
           style={{ color: "var(--text-muted)" }}
         >
           Plany i współpraca online
-        </h3>
+        </h2>
 
         <div
           ref={onlineRef}
@@ -231,7 +231,7 @@ export default function Pricing() {
                   Polecane
                 </span>
               )}
-              <h4
+              <h3
                 className="text-xs font-semibold tracking-[0.2em] uppercase mb-6"
                 style={{
                   color: plan.featured ? "var(--accent-text)" : "var(--text-muted)",
@@ -239,7 +239,7 @@ export default function Pricing() {
                 }}
               >
                 {plan.name}
-              </h4>
+              </h3>
               <div className="mb-8">
                 <span
                   className="text-4xl font-black"

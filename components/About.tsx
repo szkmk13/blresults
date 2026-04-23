@@ -32,7 +32,7 @@ export default function About({ rating }: { rating?: number | null }) {
               className="text-4xl md:text-5xl font-black leading-tight mb-2"
               style={{ color: "var(--text)" }}
             >
-              Grzegorz Bala
+              Grzegorz Bala - Trener Personalny Gdańsk
             </h2>
             <p
               className="text-sm font-medium tracking-wider mb-10 italic"
@@ -112,7 +112,7 @@ export default function About({ rating }: { rating?: number | null }) {
           >
             <Image
               src="/images/grzegorz.png"
-              alt="Grzegorz Bala"
+              alt="Grzegorz Bala - trener personalny Gdańsk, BL Results"
               fill
               className="object-cover"
               style={{ objectPosition: "center 30%" }}

@@ -4,13 +4,14 @@ import "./globals.css";
 import SchemaOrg from "@/components/SchemaOrg";
 import ThemeProvider from "@/components/ThemeProvider";
 import { Analytics } from "@vercel/analytics/next";
+import { getPlaceDetails } from "@/lib/google-reviews";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const siteUrl = "https://blresults.pl";
+const siteUrl = "https://bl-results.pl";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -19,15 +20,18 @@ export const metadata: Metadata = {
     template: "%s | BL Results Gdańsk",
   },
   description:
-    "Grzegorz Bala - trener personalny Gdańsk (BL Results, Trakt Świętego Wojciecha 243). Profesjonalne treningi personalne, indywidualne podejście, realne efekty. Otwarte Pon - Pt 6-22, Sob 8-20, Niedz 9-18.",
+    "Grzegorz Bala - trener personalny Gdańsk (Orunia). 7 lat doświadczenia, 200+ klientów. Treningi personalne i instruktaż trójboju siłowego. BL Results.",
   keywords: [
     "trener personalny Gdańsk",
+    "trener personalny gdańsk orunia",
+    "trener orunia",
     "Grzegorz Bala trener",
     "BL Results Gdańsk",
     "trening personalny Gdańsk",
     "siłownia Trakt Świętego Wojciecha",
     "gym Gdańsk",
     "personal trainer Gdańsk",
+    "Husarz Gym",
   ],
   authors: [{ name: "Grzegorz Bala" }],
   creator: "BL Results",
@@ -39,12 +43,21 @@ export const metadata: Metadata = {
     title: "Grzegorz Bala - Trener Personalny Gdańsk | BL Results",
     description:
       "Trener personalny Grzegorz Bala w Gdańsku. Indywidualne treningi, profesjonalne podejście, realne efekty. BL Results - Trakt Świętego Wojciecha 243.",
+    images: [
+      {
+        url: "/images/grzegorz.png",
+        width: 1200,
+        height: 630,
+        alt: "Grzegorz Bala - Trener Personalny Gdańsk, BL Results",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Grzegorz Bala - Trener Personalny Gdańsk | BL Results",
     description:
       "Trener personalny w Gdańsku. Indywidualne treningi, profesjonalne podejście, realne efekty.",
+    images: ["/images/grzegorz.png"],
   },
   robots: {
     index: true,
@@ -56,11 +69,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { rating, reviewCount } = await getPlaceDetails();
+
   return (
     <html
       lang="pl"
@@ -71,12 +86,12 @@ export default function RootLayout({
         {/* Inline script: apply theme class before first paint to avoid flash */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('blresults-theme');document.documentElement.classList.add(t==='light'?'light':'dark')}catch(e){}})()`,
+            __html: `(function(){try{var t=localStorage.getItem('bl-results-theme');document.documentElement.classList.add(t==='light'?'light':'dark')}catch(e){}})()`,
           }}
         />
       </head>
       <body className="min-h-full flex flex-col">
-        <SchemaOrg />
+        <SchemaOrg rating={rating} reviewCount={reviewCount} />
         <ThemeProvider>{children}</ThemeProvider>
         <Analytics />
       </body>

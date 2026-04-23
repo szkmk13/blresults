@@ -33,14 +33,14 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="#" className="flex items-center">
-          {/* Desktop: small icon logo */}
-          <Image
+          {/* Desktop: SVG logo — plain img, Next Image adds no value for SVGs */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/images/glogo.svg"
             alt="BL Results"
-            width={110}
-            height={36}
-            className="hidden md:block h-9 w-auto dark:invert"
-            style={{ width: "auto" }}
+            loading="eager"
+            className="hidden md:block dark:invert"
+            style={{ height: "2.25rem", width: "auto" }}
           />
           {/* Mobile: full logo */}
           <Image
@@ -48,8 +48,8 @@ export default function Navbar() {
             alt="BL-Results - Powerlifting & Personal Training"
             width={160}
             height={40}
-            className="md:hidden h-8 w-auto dark:invert"
-            style={{ width: "auto" }}
+            className="md:hidden dark:invert"
+            style={{ height: "2rem", width: "auto" }}
           />
         </a>
 
