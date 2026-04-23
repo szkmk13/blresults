@@ -1,11 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
+import AboutSection from "@/components/AboutSection";
 import Pricing from "@/components/Pricing";
 import Reviews from "@/components/Reviews";
 import Gallery from "@/components/Gallery";
 import Contact from "@/components/Contact";
 import ContactForm from "@/components/ContactForm";
+import MobileCTA from "@/components/MobileCTA";
 
 export default function Home() {
   return (
@@ -13,15 +14,16 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <About />
+        <AboutSection />
         <Pricing />
         <Reviews />
         <Gallery />
         <ContactForm />
         <Contact />
       </main>
+      <MobileCTA />
       <footer
-        className="py-8"
+        className="py-8 pb-24 md:pb-8"
         style={{ borderTop: "1px solid var(--border)" }}
       >
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">

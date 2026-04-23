@@ -76,7 +76,7 @@ export async function POST(request: NextRequest) {
 
   await resend.emails.send({
     from: "Formularz BL-Results <onboarding@resend.dev>",
-    to: "szkmk131@gmail.com",//"grzesiek_bl@wp.pl",
+    to: "grzesiek_bl@wp.pl",//"grzesiek_bl@wp.pl",
     subject: `Nowe zgłoszenie — ${name}`,
     html,
   });

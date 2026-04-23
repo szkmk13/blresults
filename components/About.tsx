@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useInView } from "@/hooks/useInView";
 
-export default function About() {
+export default function About({ rating }: { rating?: number | null }) {
   const [sectionRef, sectionInView] = useInView<HTMLElement>();
   const [textRef, textInView] = useInView<HTMLDivElement>();
   const [photoRef, photoInView] = useInView<HTMLDivElement>();
@@ -41,44 +41,54 @@ export default function About() {
               Trener personalny · Instruktor trójboju siłowego
             </p>
 
+            {/* Stat tiles */}
+            <div className="grid grid-cols-3 gap-3 mb-8">
+              {[
+                { value: "7 lat", label: "doświadczenia" },
+                { value: "200+", label: "klientów" },
+                { value: `★ ${(rating ?? 5.0).toFixed(1)}`, label: "ocena Google" },
+              ].map(({ value, label }) => (
+                <div
+                  key={label}
+                  className="py-4 px-3 text-center"
+                  style={{ border: "1px solid var(--border)" }}
+                >
+                  <div
+                    className="text-lg font-black leading-none mb-1"
+                    style={{ color: "var(--text)" }}
+                  >
+                    {value}
+                  </div>
+                  <div
+                    className="text-[9px] tracking-[0.15em] uppercase"
+                    style={{ color: "var(--text-faint)" }}
+                  >
+                    {label}
+                  </div>
+                </div>
+              ))}
+            </div>
+
             <div
               className="flex flex-col gap-5 text-base leading-relaxed"
               style={{ color: "var(--text-muted)" }}
             >
               <p>
                 Nazywam się Grzegorz Bala i od blisko 7 lat zawodowo zajmuję się
-                pomocą takim jak Ty na sali treningowej. Moja obecność w sporcie to
-                nie tylko lata spędzone na siłowni, ale przede wszystkim nieustanne
-                weryfikowanie wiedzy w praktyce - jako zawodnik{" "}
+                pomocą takim jak Ty na sali treningowej. Wiedzę stale weryfikuję
+                w praktyce — jako zawodnik{" "}
                 <span style={{ color: "var(--text)", fontWeight: 600 }}>
                   Trójboju Siłowego
                 </span>
                 .
               </p>
               <p>
-                W BL-Results wierzę, że fundamentem sukcesu są wspólna praca i
-                Twoje rezultaty. Jako{" "}
-                <span style={{ color: "var(--text)", fontWeight: 600 }}>
-                  trener personalny oraz instruktor trójboju siłowego
-                </span>{" "}
-                nie tylko pokazuję Ci, jak bezpiecznie dźwigać - przechodzę przez
-                ten proces razem z Tobą.
-              </p>
-              <p>
-                Stawiam na wzajemne zrozumienie i różnorodność, dzięki czemu na
-                sali nie ma miejsca na nudę - niezależnie od Twojego stażu.
-                Prowadzę treningi zarówno dla młodszych, jak i starszych
-                podopiecznych, oferując{" "}
+                Stawiam na wzajemne zrozumienie i indywidualne podejście — prowadzę{" "}
                 <span style={{ color: "var(--text)", fontWeight: 600 }}>
                   sesje indywidualne oraz w parach
                 </span>
-                . Buduję sprawność w sposób bezpieczny, zdrowy i trwały.
-              </p>
-              <p
-                className="text-base font-semibold"
-                style={{ color: "var(--text)" }}
-              >
-                Gotowy, by Twoje zaangażowanie zamienić w realne Rezultaty?
+                , budując sprawność w sposób bezpieczny, zdrowy i trwały. Niezależnie
+                od Twojego stażu.
               </p>
             </div>
 

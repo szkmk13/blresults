@@ -23,7 +23,9 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-export default function ReviewsClient({ reviews }: { reviews: Review[] }) {
+const TRUNCATE_AT = 190;
+
+export default function ReviewsClient({ reviews, rating, mapsUrl }: { reviews: Review[]; rating?: number | null; mapsUrl?: string }) {
   const [sectionRef, sectionInView] = useInView<HTMLDivElement>();
   const [headingRef, headingInView] = useInView<HTMLDivElement>();
   const [gridRef, gridInView] = useInView<HTMLDivElement>();
@@ -50,20 +52,25 @@ export default function ReviewsClient({ reviews }: { reviews: Review[] }) {
           >
             Co mówią podopieczni
           </h2>
-          <p
-            className="mt-3 text-[11px] tracking-wider"
-            style={{ color: "var(--text-faint)" }}
-          >
-            * Opinie pochodzą z Google. Wkrótce pojawią się tu prawdziwe recenzje.
-          </p>
+          {mapsUrl && (
+            <a
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-block text-[11px] tracking-wider transition-opacity hover:opacity-70"
+              style={{ color: "var(--text-faint)" }}
+            >
+              ★ Opinie z Google Maps →
+            </a>
+          )}
         </div>
         <div
           className={`md:ml-auto flex items-center gap-2 mb-1 anim-fade-in${headingInView ? " is-visible" : ""}`}
           style={headingInView ? { animationDelay: "150ms" } : undefined}
         >
-          <Stars rating={5} />
+          <Stars rating={Math.round(rating ?? 5)} />
           <span className="text-sm" style={{ color: "var(--text-muted)" }}>
-            5.0 · Google
+            {(rating ?? 5.0).toFixed(1)} · Google
           </span>
         </div>
       </div>
@@ -85,7 +92,21 @@ export default function ReviewsClient({ reviews }: { reviews: Review[] }) {
                 className="text-base leading-relaxed flex-1"
                 style={{ color: "var(--text-muted)" }}
               >
-                {review.text}
+                {review.text.length > TRUNCATE_AT
+                  ? <>{review.text.slice(0, TRUNCATE_AT).trimEnd()}…{" "}
+                      {mapsUrl && (
+                        <a
+                          href={mapsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="transition-opacity hover:opacity-70"
+                          style={{ color: "var(--text)", fontWeight: 500 }}
+                        >
+                          czytaj dalej →
+                        </a>
+                      )}
+                    </>
+                  : review.text}
               </p>
             )}
             <div>

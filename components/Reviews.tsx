@@ -1,31 +1,33 @@
-import { getReviews, Review } from "@/lib/google-reviews";
+import { getPlaceDetails, Review } from "@/lib/google-reviews";
 import ReviewsClient from "./ReviewsClient";
 
 const FALLBACK_REVIEWS: Review[] = [
-  {
-    author_name: "Marcin K.",
-    rating: 5,
-    text: "Grzegorz to świetny trener personalny! Indywidualne podejście, zawsze motywuje do działania. Po 3 miesiącach efekty widoczne gołym okiem. Polecam!",
-    relative_time_description: "miesiąc temu",
-  },
-  {
-    author_name: "Anna W.",
-    rating: 5,
-    text: "Profesjonalne podejście, świetna atmosfera. Grzesiek zawsze dostosowuje plan do moich możliwości. Już po 3 miesiącach widzę realne efekty!",
-    relative_time_description: "2 miesiące temu",
-  },
-  {
-    author_name: "Tomasz B.",
-    rating: 5,
-    text: "Najlepszy trener personalny w Gdańsku. Przytulna atmosfera, dobry sprzęt i przystępne ceny. Nic więcej nie potrzeba.",
-    relative_time_description: "3 miesiące temu",
-  },
+  // {
+  //   author_name: "Kamil K.",
+  //   rating: 5,
+  //   text: "Trenowałem z Grzegorzem ponad pół roku. Świetnie ogarnął mi podstawy trójboju, ułożenie pod wyciskanie, aktywacje jakie wykonać przed treningiem. Miałem zawsze problem z przysiadem przez głębokość też wystarczyła mu godzina, żeby robić o wiele niżej. Serdecznie polecam współpracę i plany od Grzecha. Zyskanie świadomości treningowej wchodzi poziom wyżej.",
+  //   relative_time_description: "miesiąc temu",
+  // },
+  // {
+  //   author_name: "Gosia K.",
+  //   rating: 5,
+  //   text: "Leniwy, arogancki, prowadzący niezdrowy typ życia - tyle o mnie 😜 ale Grzegorz pokazał że i ze mnie może być dobrze wyglądający, i co najważniejsze, dobrze czujący się jegomość. Ponaprawiał mi MOCNO zdemolowane plecy, powzmacniał mi takie obszary, o których nie miałem pojęcia, że istnieją. Pokazał że siłownia to nie tylko bezmyślne przerzucanie żelastwa ale naprawdę bardzo ciekawy, wymagający i uzależniający sposób spędzania czasu. Z czystym sumieniem polecam Grześka jako personalnego!!!💪",
+  //   relative_time_description: "2 miesiące temu",
+  // },
+  // {
+  //   author_name: "Paweł U.",
+  //   rating: 5,
+  //   text: "Trener wykazuje się dużą wiedzą, profesjonalizmem i zaangażowaniem. Każdy trening jest dobrze zaplanowany i dostosowany do poziomu uczestników. Potrafi zmotywować do wysiłku, jednocześnie dbając o poprawną technikę i bezpieczeństwo. Tworzy przyjazną atmosferę, dzięki czemu treningi są efektywne i przyjemne.",
+  //   relative_time_description: "3 miesiące temu",
+  // },
 ];
 
 export default async function Reviews() {
-  const reviews = await getReviews();
+  const { reviews, rating } = await getPlaceDetails();
   const displayReviews =
-    reviews.length > 0 ? reviews.slice(0, 6) : FALLBACK_REVIEWS;
+    reviews.length > 0 ? reviews.slice(0, 3) : FALLBACK_REVIEWS;
+
+  const mapsUrl = `https://www.google.com/maps/place/?q=place_id:${process.env.PLACE_ID}`;
 
   return (
     <section
@@ -34,7 +36,7 @@ export default async function Reviews() {
       style={{ borderTop: "1px solid var(--border)" }}
     >
       <div className="max-w-6xl mx-auto px-6">
-        <ReviewsClient reviews={displayReviews} />
+        <ReviewsClient reviews={displayReviews} rating={rating} mapsUrl={mapsUrl} />
       </div>
     </section>
   );

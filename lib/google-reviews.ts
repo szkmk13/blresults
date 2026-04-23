@@ -6,22 +6,29 @@ export interface Review {
   profile_photo_url?: string;
 }
 
-export async function getReviews(): Promise<Review[]> {
+export interface PlaceDetails {
+  reviews: Review[];
+  rating: number | null;
+}
+
+export async function getPlaceDetails(): Promise<PlaceDetails> {
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
   const placeId = process.env.PLACE_ID;
 
-  if (!apiKey || !placeId) {
-    return [];
-  }
+  if (!apiKey || !placeId) return { reviews: [], rating: null };
 
   try {
     const res = await fetch(
-      `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews,rating&key=${apiKey}`,
+      `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&key=${apiKey}&language=pl`,
       { next: { revalidate: 86400 } }
     );
     const data = await res.json();
-    return data.result?.reviews ?? [];
+
+    return {
+      reviews: data.result?.reviews ?? [],
+      rating: data.result?.rating ?? null,
+    };
   } catch {
-    return [];
+    return { reviews: [], rating: null };
   }
 }
