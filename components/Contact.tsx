@@ -22,7 +22,7 @@ const contactInfo = [
   },
   {
     label: "Godziny otwarcia",
-    lines: ["Pon–Pt: 7:00 – 22:00", "Sob: 8:00 – 16:00", "Niedz: 10:00 – 14:00"],
+    lines: ["Pon-Pt: 7:00 - 22:00", "Sob: 8:00 - 16:00", "Niedz: 10:00 - 14:00"],
   },
 ];
 

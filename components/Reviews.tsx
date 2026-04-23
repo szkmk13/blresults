@@ -27,7 +27,7 @@ export default async function Reviews() {
   const displayReviews =
     reviews.length > 0 ? reviews.slice(0, 3) : FALLBACK_REVIEWS;
 
-  const mapsUrl = `https://www.google.com/maps/place/?q=place_id:${process.env.PLACE_ID}`;
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query_place_id=${process.env.PLACE_ID}&query=BL+Results+Gda%C5%84sk`;
 
   return (
     <section

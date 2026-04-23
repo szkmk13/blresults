@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | BL Results Gdańsk",
   },
   description:
-    "Grzegorz Bala - trener personalny Gdańsk (BL Results, Trakt Świętego Wojciecha 243). Profesjonalne treningi personalne, indywidualne podejście, realne efekty. Otwarte Pon–Pt 6–22, Sob 8–20, Niedz 9–18.",
+    "Grzegorz Bala - trener personalny Gdańsk (BL Results, Trakt Świętego Wojciecha 243). Profesjonalne treningi personalne, indywidualne podejście, realne efekty. Otwarte Pon - Pt 6-22, Sob 8-20, Niedz 9-18.",
   keywords: [
     "trener personalny Gdańsk",
     "Grzegorz Bala trener",

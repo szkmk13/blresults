@@ -23,7 +23,7 @@ export async function getPlaceDetails(): Promise<PlaceDetails> {
       { next: { revalidate: 86400 } }
     );
     const data = await res.json();
-
+    console.log("Google Places API response:", data);
     return {
       reviews: data.result?.reviews ?? [],
       rating: data.result?.rating ?? null,
