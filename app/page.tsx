@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
 import Pricing from "@/components/Pricing";
 import Reviews from "@/components/Reviews";
-import Gallery from "@/components/Gallery";
+import Prelegent from "@/components/Prelegent";
 import Contact from "@/components/Contact";
 import ContactForm from "@/components/ContactForm";
 import MobileCTA from "@/components/MobileCTA";
@@ -15,9 +15,9 @@ export default function Home() {
       <main>
         <Hero />
         <AboutSection />
+        <Prelegent />
         <Pricing />
         <Reviews />
-        <Gallery />
         <ContactForm />
         <Contact />
       </main>
@@ -38,7 +38,7 @@ export default function Home() {
               ["O mnie", "#about"],
               ["Oferta", "#pricing"],
               ["Opinie", "#reviews"],
-              ["Galeria", "#gallery"],
+              ["Prelegent", "#prelegent"],
               ["Kontakt", "#form"],
             ].map(([label, href]) => (
               <a

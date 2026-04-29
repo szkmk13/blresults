@@ -112,7 +112,7 @@ export default function Pricing() {
           className={`text-[10px] font-medium tracking-[0.4em] uppercase mb-16 anim-fade-in${sectionInView ? " is-visible" : ""}`}
           style={{ color: "var(--text-faint)" }}
         >
-          02 - Oferta
+          03 - Oferta
         </p>
 
         {/* ── Training sessions ─────────────────────── */}
@@ -137,33 +137,30 @@ export default function Pricing() {
               className={`grid md:grid-cols-[1fr_auto] gap-4 items-center p-6 md:p-8 anim-fade-up${packagesInView ? " is-visible" : ""}`}
               style={{
                 borderTop: i > 0 ? "1px solid var(--border)" : "none",
-                backgroundColor: pkg.best ? "var(--bg-card)" : "transparent",
+                backgroundColor: pkg.best ? "var(--accent)" : "transparent",
                 ...(packagesInView ? { animationDelay: `${i * 80}ms` } : {}),
               }}
             >
               <div>
+                {pkg.best && (
+                  <p
+                    className="text-[10px] font-medium tracking-[0.35em] uppercase mb-2"
+                    style={{ color: "var(--accent-text)", opacity: 0.6 }}
+                  >
+                    Najlepsza cena
+                  </p>
+                )}
                 <div className="flex items-center gap-3 mb-1">
                   <span
                     className="text-sm font-semibold"
-                    style={{ color: "var(--text)" }}
+                    style={{ color: pkg.best ? "var(--accent-text)" : "var(--text)" }}
                   >
                     {pkg.name}
                   </span>
-                  {pkg.best && (
-                    <span
-                      className="text-[10px] font-semibold tracking-[0.2em] uppercase px-2 py-0.5"
-                      style={{
-                        backgroundColor: "var(--accent)",
-                        color: "var(--accent-text)",
-                      }}
-                    >
-                      Najlepsza cena
-                    </span>
-                  )}
                   {pkg.validity && (
                     <span
                       className="text-[11px]"
-                      style={{ color: "var(--text-faint)" }}
+                      style={{ color: pkg.best ? "var(--accent-text)" : "var(--text-faint)", opacity: pkg.best ? 0.55 : 1 }}
                     >
                       · {pkg.validity}
                     </span>
@@ -171,7 +168,7 @@ export default function Pricing() {
                 </div>
                 <p
                   className="text-sm leading-relaxed"
-                  style={{ color: "var(--text-muted)" }}
+                  style={{ color: pkg.best ? "var(--accent-text)" : "var(--text-muted)", opacity: pkg.best ? 0.8 : 1 }}
                 >
                   {pkg.description}
                 </p>
@@ -179,17 +176,20 @@ export default function Pricing() {
               <div className="flex items-baseline gap-1 md:text-right shrink-0">
                 <span
                   className="text-3xl font-black"
-                  style={{ color: "var(--text)" }}
+                  style={{ color: pkg.best ? "var(--accent-text)" : "var(--text)" }}
                 >
                   {pkg.price}
                 </span>
-                <span className="text-sm" style={{ color: "var(--text-muted)" }}>
+                <span
+                  className="text-sm"
+                  style={{ color: pkg.best ? "var(--accent-text)" : "var(--text-muted)", opacity: pkg.best ? 0.7 : 1 }}
+                >
                   zł
                 </span>
                 {pkg.perSession && (
                   <span
                     className="text-[11px] ml-1"
-                    style={{ color: "var(--text-faint)" }}
+                    style={{ color: pkg.best ? "var(--accent-text)" : "var(--text-faint)", opacity: pkg.best ? 0.55 : 1 }}
                   >
                     ({pkg.perSession})
                   </span>

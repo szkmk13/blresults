@@ -11,14 +11,14 @@ const images = [
   { src: "/images/szkoleniowiec3.JPG", alt: "Grzegorz Bala jako szkoleniowiec - warsztat treningowy", sizes: "(max-width: 640px) 50vw, (max-width: 768px) 33vw, 17vw" },
 ];
 
-export default function Gallery() {
+export default function Prelegent() {
   const [sectionRef, sectionInView] = useInView<HTMLElement>();
   const [textRef, textInView] = useInView<HTMLDivElement>();
   const [gridRef, gridInView] = useInView<HTMLDivElement>();
 
   return (
     <section
-      id="gallery"
+      id="prelegent"
       ref={sectionRef}
       className="py-24 md:py-32"
       style={{ backgroundColor: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}
@@ -28,7 +28,7 @@ export default function Gallery() {
           className={`text-[10px] font-medium tracking-[0.4em] uppercase mb-16 anim-fade-in${sectionInView ? " is-visible" : ""}`}
           style={{ color: "var(--text-faint)" }}
         >
-          04 - Prelegent
+          02 - Prelegent
         </p>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">

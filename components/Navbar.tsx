@@ -6,9 +6,9 @@ import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { href: "#about", label: "O mnie" },
+  { href: "#prelegent", label: "Prelegent" },
   { href: "#pricing", label: "Oferta" },
   { href: "#reviews", label: "Opinie" },
-  { href: "#gallery", label: "Galeria" },
   { href: "#form", label: "Kontakt" },
 ];
 

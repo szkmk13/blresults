@@ -37,7 +37,7 @@ export default function ReviewsClient({ reviews, rating, mapsUrl }: { reviews: R
           className={`text-[10px] font-medium tracking-[0.4em] uppercase mb-16 anim-fade-in${sectionInView ? " is-visible" : ""}`}
           style={{ color: "var(--text-faint)" }}
         >
-          03 - Opinie
+          04 - Opinie
         </p>
       </div>
 
